@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Some Text here:</h2>
+
+<form action="/newpost" method="post">
+    <label>
+        Some text here
+        <input type="text" name="newpost"/>
+    </label>
+    <input type="submit" value="Create New Blog Post"/>
+</form>
+
+
+<p class="error">{{ error if error else "" }}</p>
+{% endblock %}
