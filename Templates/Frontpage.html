@@ -1,16 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Some Text here:</h2>
+<html>
+    <head>
+        <body>
+        <title>Create a new Post!</title>
+    </head>
+    <h1>Create a new post</h1>
+        <form method="post">
+            <label>
+                <div>Title:</div>
+                <input type="text" name="title" value ="{{title}}">
+            </label>
+            <br>
+            <label>
+                <div>Body:</div>
+                <textarea name="body">{{body}}</textarea>
+            </label>
 
-<form action="/newpost" method="post">
-    <label>
-        Some text here
-        <input type="text" name="newpost"/>
-    </label>
-    <input type="submit" value="Create New Blog Post"/>
-</form>
+            <div class="error">{{error}}</div>
+            <input type="submit">
+        </form>
 
-
-<p class="error">{{ error if error else "" }}</p>
+        <hr>
+    </body>
+</html>
 {% endblock %}

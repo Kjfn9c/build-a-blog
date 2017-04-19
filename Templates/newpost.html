@@ -1,12 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2> New Blog Post </h2>
-<form action="/newpost" method="post">
-    <label> Title </label>
-        <input type="text" name="Title"/>
-    <label> Body </label>
-        <imput type="textarea" name="Body"/>
+<html>
+    <head>
+        <body>
+            <h2> Blog Posts: </h2>
 
-</form>
+            <ul>
+            {% for post in posts %}
+                <li>
+                    <form action="/newpost" method="post">
+                        <div class="post">
+                            <div class="post-title">{{post.title}}</div>
+                            <pre class="post-body">{{post.body}}</pre>
+                        </div>
+                    </form>
+                </li>
+            {% endfor %}
+            </ul>
+        </body>
+    </head>
+</html>
 {% endblock %}
